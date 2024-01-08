@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+import { unstable_noStore } from 'next/cache';
 import {
   CustomerField,
   CustomersTableType,
@@ -33,6 +34,7 @@ export async function fetchRevenue() {
 }
 
 export async function fetchLatestInvoices() {
+  unstable_noStore();
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
