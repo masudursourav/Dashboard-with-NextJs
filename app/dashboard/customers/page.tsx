@@ -1,4 +1,3 @@
-import LayoutNav from '../layoutNav';
 export default function Page() {
-  return <LayoutNav>Hello</LayoutNav>;
+  return <h1>Hello</h1>;
 }
